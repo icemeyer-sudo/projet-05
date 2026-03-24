@@ -109,6 +109,9 @@ footer {
             object-fit: cover;
             border-radius: 10px;
         }
+        a {
+            z-index: 2;
+        }
         &::after {
             content: '';
             position: absolute;
@@ -194,6 +197,107 @@ footer {
                 font-weight: 700;
                 margin: 0px 15px;
             }
+        }
+    }
+}
+
+#fiche {
+    margin-top: 50px;
+     margin-bottom: 50px;
+    .__picture {
+        img {
+            width: 100%;
+            aspect-ratio: 3/1;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+    }
+    .__article {
+        .--header {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            h2 {
+                font-size: 36px;
+                font-weight: 500;
+                color: $red-color;
+                line-height: 143%;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            .--owner {
+                display: flex;
+                gap: 10px;
+                text-align: right;
+                p {
+                    margin-top: 7px;
+                    color: $red-color;
+                    font-size: 18px;
+                    line-height: 130%;
+                }
+                img {
+                    width: 64px;
+                    height: 61px;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .--tagsAndRating {
+            display: flex;
+            justify-content: space-between;
+        }
+        .--tags-container {
+            display: flex;
+            gap: 10px;
+            .--tags {
+                display: flex;
+                color: #fff;
+                align-items: center;
+                height: 25px;
+                padding-left: 20px;
+                padding-right: 20px;
+                background-color: $red-color;
+                font-size: 14px;;
+                border-radius: 10px;
+            }
+        }
+        .--rating-container {
+            display: flex;
+            gap: 10px;
+            .--filledStars {
+                font-size: 24px;
+                color: $red-color;
+            }
+            .--unfilledStars {
+                font-size: 24px;
+                color: #E3E3E3;
+            }
+        }
+
+    }
+}
+
+#__page-error {
+    text-align: center;
+    margin-top: 100px;
+    h2 {
+        font-size: 288px;
+        font-weight: 700;
+        color: $red-color;
+    }
+    .--text {
+        margin-top: 100px;
+        font-size: 36px;
+        color: $red-color;
+    }
+    .--link {
+        margin-top: 100px;
+        font-size: 18px;
+        margin-bottom: 100px;
+        a {
+            border-bottom: 1px solid #E3E3E3;
         }
     }
 }

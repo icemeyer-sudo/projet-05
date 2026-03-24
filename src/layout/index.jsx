@@ -1,6 +1,5 @@
 import data from '../bdd/data.json';
-
-console.log(data);
+import {Link} from "react-router-dom";
 
 export function Index() {
     return <main id="index">
@@ -19,13 +18,19 @@ function Section__gallery() {
     return <section className="section__gallery">
         <div className="section__gallery--div">
             {data.map((work) => (
-                <article key={work.id}>
-                    <img src={work.cover} alt={work.title}/>
-                    <div>
-                        <h2>{work.title}</h2>
-                    </div>
-                </article>
+                <Card work={work} key={work.id}/>
             ))}
         </div>
     </section>
+}
+
+function Card(props) {
+    return <article key={props.work.id}>
+        <img src={props.work.cover} alt={props.work.title}/>
+            <div>
+                <Link to={`fiche-logement/${props.work.id}`}>
+                    <h2>{props.work.title}</h2>
+                </Link>
+            </div>
+    </article>
 }

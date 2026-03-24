@@ -1,9 +1,10 @@
 import {createBrowserRouter, Outlet} from "react-router-dom";
-import {Index} from "./index.jsx";
-import {Header} from "./header.jsx";
-import {Contact} from "./contact.jsx";
-import {PageError} from "./pageError.jsx";
-import {Footer} from "./footer.jsx";
+import {Index} from "./Index.jsx";
+import {Header} from "./Header.jsx";
+import {Contact} from "./Contact.jsx";
+import {PageError} from "./PageError.jsx";
+import {Footer} from "./Footer.jsx";
+import {AccommodationDetails} from "./AccommodationDetails.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -17,7 +18,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'fiche-logement',
-                element: <Logement/>
+                children: [
+                    {
+                        path: '',
+                        element: <PageError/>
+                    },
+                    {
+                        path: ':id',
+                        element: <AccommodationDetails/>
+                    }
+                ]
             },
             {
                 path: 'contact',
@@ -34,10 +44,3 @@ function Root() {
         <Footer/>
     </>
 }
-
-function Logement() {
-    return <>
-        <h1>Fiche logement</h1>
-    </>
-}
-
