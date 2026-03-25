@@ -57,7 +57,7 @@ export function Galery({pictures}) {
         } else {
             return <>
                 {pictures.map((picture) => (
-                    <img key={picture} src={picture} alt={"Photo " + {pictures}}/>
+                    <img key={picture} src={picture} alt={"Photo " + {pictures}} style={{translate: `${-100 * currentIndex}%`}}/>
                 ))}
             </>
         }
