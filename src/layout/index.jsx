@@ -25,12 +25,14 @@ function Section__gallery() {
 }
 
 function Card(props) {
-    return <article key={props.work.id}>
-        <img src={props.work.cover} alt={props.work.title}/>
-            <div>
-                <Link to={`fiche-logement/${props.work.id}`}>
+    return <>
+        <article key={props.work.id}>
+            <Link to={`fiche-logement/${props.work.id}`}>
+                <img src={props.work.cover} alt={`Photo du logement de l'annonce : ${props.work.title}`}/>
+                <div>
                     <h2>{props.work.title}</h2>
-                </Link>
-            </div>
-    </article>
+                </div>
+            </Link>
+        </article>
+    </>
 }

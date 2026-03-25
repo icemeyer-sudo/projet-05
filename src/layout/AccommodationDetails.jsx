@@ -1,5 +1,7 @@
 import {useParams} from "react-router-dom";
 import data from '../bdd/data.json';
+import {CollapseEffect} from './collapse.jsx'
+import { Galery } from './galery/galery.jsx';
 
 export function AccommodationDetails () {
     const {id} = useParams();
@@ -8,22 +10,17 @@ export function AccommodationDetails () {
         return <section id="fiche">Logement introuvable.</section>;
     }
     return <section id="fiche">
-        <Picture picture={accommodation.cover}/>
+        <Galery pictures={accommodation.pictures}/>
         <Article accommodation={accommodation}/>
     </section>
 }
 
-function Picture({picture}) {
-    return <div className="__picture">
-        <img src={picture} alt="Photo du logement"/>
-    </div>
-}
-
 function Article(props) {
-    const {title, location, host, rating, tags} = props.accommodation;
+    const {title, location, host, rating, tags, description, equipments} = props.accommodation;
     return <article className="__article">
         <Header title={title} location={location} host={host}/>
         <TagsAndRating tags={tags} rating={rating}/>
+        <Collapse description={description} equipments={equipments}/>
     </article>
 }
 
@@ -54,6 +51,15 @@ function TagsAndRating({tags, rating}) {
             <Rating rating={rating}/>
         </div>
     </div>
+}
+
+function Collapse({description, equipments}) {
+    return <>
+        <div className="collapse-container">
+            <CollapseEffect name="Description" content={description}/>
+            <CollapseEffect name="Équipement" content={equipments}/>
+        </div>
+    </>
 }
 
 function Tags({tags}) {

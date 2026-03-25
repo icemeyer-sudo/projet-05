@@ -109,9 +109,6 @@ footer {
             object-fit: cover;
             border-radius: 10px;
         }
-        a {
-            z-index: 2;
-        }
         &::after {
             content: '';
             position: absolute;
@@ -122,6 +119,7 @@ footer {
             background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.5) 100%);
             border-radius: 10px;
             z-index: 1;
+            pointer-events: none;
         }
         div {
             position: absolute;
@@ -183,7 +181,7 @@ footer {
         flex-direction: column;
         gap: 38px;
         margin: 0px 104px;
-        div {
+        .--collapse {
             width: 100%;
             height: 50px;
             background-color: $red-color;
@@ -202,16 +200,10 @@ footer {
 }
 
 #fiche {
+    width: 100%;
+    max-width: 1240px;
     margin-top: 50px;
-     margin-bottom: 50px;
-    .__picture {
-        img {
-            width: 100%;
-            aspect-ratio: 3/1;
-            object-fit: cover;
-            border-radius: 25px;
-        }
-    }
+    margin-bottom: 50px;
     .__article {
         .--header {
             margin-top: 50px;
@@ -300,4 +292,60 @@ footer {
             border-bottom: 1px solid #E3E3E3;
         }
     }
+}
+
+.collapse-container {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+.title {
+        height: 50px;
+        background-color: $red-color;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        p {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+.collapse {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .textInCollapse {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s ease;
+            background-color: rgb(250,250,250);
+            font-size: 14px;
+            border-radius: 5px;
+            ul, p {
+                margin: 20px;
+                line-height: 120%;
+            }
+            li {
+                margin-top: 5px;
+            }
+            .content {
+                overflow: hidden;
+        }
+        }
+        .active {
+            grid-template-rows: 1fr;
+        }
+    }
+
+
+.rotated {
+    transform: rotate(180deg);
+}
+.fa-angle-down {
+    transition: transform 0.3s ease;
 }

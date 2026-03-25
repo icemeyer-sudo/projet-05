@@ -1,16 +1,106 @@
-# React + Vite
+# Kasa - Application Front-End React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projet realise dans le cadre du parcours OpenClassrooms (Projet 05).
 
-Currently, two official plugins are available:
+Kasa est une application de location de logements construite en React, avec routage client et composants reutilisables (galerie, fiche logement, blocs repliables).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Apercu
 
-## React Compiler
+Objectifs fonctionnels du projet :
+- afficher une galerie de logements depuis des donnees JSON,
+- naviguer vers une page de detail via un identifiant dynamique,
+- proposer une page de contact avec des sections collapsables,
+- gerer les erreurs de navigation avec une page dediee.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack Technique
 
-## Expanding the ESLint configuration
+- React 19
+- React Router
+- Vite
+- Sass (SCSS)
+- ESLint
+- Font Awesome
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Architecture
+
+```text
+src/
+	App.jsx
+	main.jsx
+	bdd/
+		data.json
+	layout/
+		Router.jsx
+		Header.jsx
+		Footer.jsx
+		Index.jsx
+		Contact.jsx
+		AccommodationDetails.jsx
+		PageError.jsx
+		collapse.jsx
+	scss/
+		style.scss
+```
+
+## Routes
+
+- `/` : page d'accueil
+- `/contact` : page de contact
+- `/fiche-logement/:id` : fiche detaillee d'un logement
+
+## Lancer Le Projet
+
+### Prerequis
+
+- Node.js 18 ou superieur
+- npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Developpement
+
+```bash
+npm run dev
+```
+
+Vite affiche ensuite l'URL locale (souvent `http://localhost:5173`).
+
+### Build Production
+
+```bash
+npm run build
+```
+
+### Preview Production
+
+```bash
+npm run preview
+```
+
+### Qualite De Code
+
+```bash
+npm run lint
+```
+
+## Choix Techniques
+
+- Routage centralise avec `createBrowserRouter` pour structurer les pages et la gestion d'erreur.
+- Separation claire presentation/logique via des composants dedies dans `src/layout`.
+- Donnees mockees locales (`src/bdd/data.json`) pour developper sans dependance API.
+- Style global en SCSS avec organisation par zones de page.
+
+## Ameliorations Possibles
+
+- Ajouter des tests unitaires (React Testing Library).
+- Ajouter une integration continue (lint/build automatiques).
+- Charger les donnees via API avec etats de chargement/erreur.
+- Ameliorer l'accessibilite (navigation clavier, attributs ARIA des collapses).
+
+## Auteur
+
+Projet realise par Leonie Dobbelstein dans le cadre de la formation OpenClassrooms.

@@ -1,0 +1,40 @@
+.__picture {
+    position: relative;
+    display: flex;
+    transition: transform 0.3s ease;
+
+    img {
+        width: 100%;
+        aspect-ratio: 3/1;
+        object-fit: cover;
+        border-radius: 25px;
+    }
+
+    .__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 48px;
+        cursor: pointer;
+    }
+
+    .__arrow--left {
+        left: 16px;
+    }
+
+    .__arrow--right {
+        right: 16px;
+    }
+
+    .__counter {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 18px;
+    }
+}
