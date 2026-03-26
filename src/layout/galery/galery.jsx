@@ -4,8 +4,6 @@ import styles from './galery.module.css';
 export function Galery({pictures}) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    console.log(currentIndex)
-
     if (!pictures || pictures.length === 0) {
         return null;
     }
