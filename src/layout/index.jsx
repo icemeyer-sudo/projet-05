@@ -10,7 +10,7 @@ export function Index() {
 
 function Section__banner() {
     return <section className="index__banner">
-        <p>Chez vous, partout et ailleurs</p>
+        <h1>Chez vous, partout et ailleurs</h1>
     </section>
 }
 

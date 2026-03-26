@@ -1,9 +1,9 @@
-import {createBrowserRouter, Outlet} from "react-router-dom";
-import {Index} from "./Index.jsx";
-import {Header} from "./Header.jsx";
-import {Contact} from "./Contact.jsx";
-import {PageError} from "./PageError.jsx";
-import {Footer} from "./Footer.jsx";
+import {createBrowserRouter, Outlet, ScrollRestoration} from "react-router-dom";
+import {Index} from "./index.jsx";
+import {Header} from "./header.jsx";
+import {Contact} from "./contact.jsx";
+import {PageError} from "./pageError.jsx";
+import {Footer} from "./footer.jsx";
 import {AccommodationDetails} from "./AccommodationDetails.jsx";
 
 export const router = createBrowserRouter([
@@ -39,6 +39,7 @@ export const router = createBrowserRouter([
 
 function Root() {
     return <>
+        <ScrollRestoration/>
         <Header/>
         <Outlet/>
         <Footer/>

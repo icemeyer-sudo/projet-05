@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import data from '../bdd/data.json';
 import {CollapseEffect} from './collapse.jsx'
-import { Galery } from './galery/galery.jsx';
+import { Carousel } from './galery/carousel.jsx';
 
 export function AccommodationDetails () {
     const {id} = useParams();
@@ -9,10 +9,10 @@ export function AccommodationDetails () {
     if(!accommodation) {
         return <section id="fiche">Logement introuvable.</section>;
     }
-    return <section id="fiche">
-        <Galery pictures={accommodation.pictures}/>
+    return <main id="fiche">
+        <Carousel pictures={accommodation.pictures}/>
         <Article accommodation={accommodation}/>
-    </section>
+    </main>
 }
 
 function Article(props) {
@@ -28,8 +28,8 @@ function Header({title, location, host}) {
     const [firstName = "", lastName = ""] = host.name.split(" ");
     return <div className="--header">
         <div>
-            <h2>{title}</h2>
-            <h3>{location}</h3>
+            <h1>{title}</h1>
+            <h2>{location}</h2>
         </div>
         <div className="--owner">
             <p>
@@ -65,7 +65,7 @@ function Collapse({description, equipments}) {
 function Tags({tags}) {
     return <>
         {tags.map((tag) => (
-            <h4 key={tag} className="--tags">{tag}</h4>
+            <p key={tag} className="--tags">{tag}</p>
         ))}
     </>
 }

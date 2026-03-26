@@ -3,10 +3,10 @@ import logoWhite from "/public/logo-white.png";
 export function Footer() {
     return <footer>
         <div>
-            <img src={logoWhite} alt="logo"/>
+            <img src={logoWhite} alt="Logo de Kasa"/>
         </div>
         <div>
-            <p>© 2020 Kasa. All rights reserved</p>
+            <span>© 2020 Kasa. All rights reserved</span>
         </div>
     </footer>
 }
