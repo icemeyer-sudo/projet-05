@@ -1,0 +1,61 @@
+$red-color: #FF6060;
+
+.collapse {
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            height: 50px;
+            background-color: $red-color;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor: pointer;
+
+            span, h3 {
+                color: #fff;
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            .rotated {
+                transform: rotate(180deg);
+            }
+
+            .fa-angle-down {
+                transition: transform 0.3s ease;
+            }
+
+        }
+
+        .textInCollapse {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s ease;
+            background-color: rgb(250,250,250);
+            font-size: 14px;
+            border-radius: 5px;
+
+            ul, p {
+                margin: 20px;
+                line-height: 120%;
+            }
+
+            li {
+                margin-top: 5px;
+            }
+
+            .content {
+                overflow: hidden;
+            }
+        }
+
+        .active {
+            grid-template-rows: 1fr;
+        }
+    }

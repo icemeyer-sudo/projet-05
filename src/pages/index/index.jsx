@@ -1,22 +1,23 @@
-import data from '../bdd/data.json';
-import {Link} from "react-router-dom";
+import data from '../../bdd/data.json';
+import { Link } from "react-router-dom";
+import styles from "./index.module.css";
 
 export function Index() {
-    return <main id="index">
+    return <main>
         <Section__banner/>
         <Section__gallery/>
     </main>
 }
 
 function Section__banner() {
-    return <section className="index__banner">
+    return <section className={styles["index__banner"]}>
         <h1>Chez vous, partout et ailleurs</h1>
     </section>
 }
 
 function Section__gallery() {
-    return <section className="section__gallery">
-        <div className="section__gallery--div">
+    return <section className={styles["section__gallery"]}>
+        <div className={styles["section__gallery--div"]}>
             {data.map((work) => (
                 <Card work={work} key={work.id}/>
             ))}

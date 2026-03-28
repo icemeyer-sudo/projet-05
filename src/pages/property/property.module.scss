@@ -1,0 +1,11 @@
+$red-color: #FF6060;
+
+.collapse-container {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 375px) {
+        flex-direction: column;
+    }
+}

@@ -1,9 +1,10 @@
-import {useParams} from "react-router-dom";
-import data from '../bdd/data.json';
-import {CollapseEffect} from './collapse.jsx'
-import { Carousel } from './galery/carousel.jsx';
+import { useParams } from "react-router-dom";
+import data from '@/bdd/data.json';
+import { CollapseEffect } from '@/components/accordion/accordion.jsx'
+import { Carousel } from '@/components/carousel/carousel.jsx';
+import styles from './property.module.css';
 
-export function AccommodationDetails () {
+export function Property () {
     const {id} = useParams();
     const accommodation = data.find((accommodation) => accommodation.id === id);
     if(!accommodation) {
@@ -55,7 +56,7 @@ function TagsAndRating({tags, rating}) {
 
 function Collapse({description, equipments}) {
     return <>
-        <div className="collapse-container">
+        <div className={styles["collapse-container"]}>
             <CollapseEffect name="Description" content={description}/>
             <CollapseEffect name="Équipement" content={equipments}/>
         </div>

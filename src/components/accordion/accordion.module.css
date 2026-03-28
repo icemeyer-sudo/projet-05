@@ -1,0 +1,48 @@
+.collapse {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.collapse .title {
+  height: 50px;
+  background-color: #FF6060;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.collapse .title span, .collapse .title h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+.collapse .title .rotated {
+  transform: rotate(180deg);
+}
+.collapse .title .fa-angle-down {
+  transition: transform 0.3s ease;
+}
+.collapse .textInCollapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+  background-color: rgb(250, 250, 250);
+  font-size: 14px;
+  border-radius: 5px;
+}
+.collapse .textInCollapse ul, .collapse .textInCollapse p {
+  margin: 20px;
+  line-height: 120%;
+}
+.collapse .textInCollapse li {
+  margin-top: 5px;
+}
+.collapse .textInCollapse .content {
+  overflow: hidden;
+}
+.collapse .active {
+  grid-template-rows: 1fr;
+}/*# sourceMappingURL=accordion.module.css.map */

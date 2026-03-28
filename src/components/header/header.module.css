@@ -1,0 +1,37 @@
+header {
+  width: 100%;
+  max-width: 1240px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header img {
+  width: 210px;
+}
+@media (max-width: 480px) {
+  header img {
+    width: 145px;
+  }
+}
+header .__nav {
+  display: flex;
+}
+header .__nav ul {
+  display: flex;
+  gap: 57px;
+}
+header .__nav ul li {
+  font-size: 24px;
+}
+@media (max-width: 480px) {
+  header .__nav ul li {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+@media (max-width: 480px) {
+  header .__nav ul {
+    gap: 26px;
+  }
+}/*# sourceMappingURL=header.module.css.map */

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './accordion.module.css';
 
 export function CollapseEffect({name, content}) {
     const [collapse, setCollapse] = useState(false);
@@ -28,16 +29,18 @@ export function CollapseEffect({name, content}) {
     }
 
     return <>
-    <div className="collapse">
-        <div className="title" onClick={handleCollapse}>
-            <h3>{name}</h3>
-            <p><i className={`fa-solid fa-angle-down ${rotated ? 'rotated' : ''}`}></i></p>
-        </div>
-        <div className={`textInCollapse ${collapse ? 'active' : ''}`}>
-            <div className="content">
-                {renderContent()}
+        <div className={ styles["collapse"] }>
+            <div className={ styles["title"] } onClick={handleCollapse}>
+                <h3>{ name }</h3>
+                <span className={ `fa-solid fa-angle-down ${styles["fa-angle-down"]} ${ rotated ? styles["rotated"] : '' }` }></span>
+            </div>
+            <div className={`${ styles["textInCollapse"] } ${collapse ? styles["active"] : ''}`}>
+                <div className={styles["content"]}>
+                    {renderContent()}
+                </div>
             </div>
         </div>
-    </div>
     </>
 }
+
+// className={`${styles["carousel__arrow"]}

@@ -1,4 +1,4 @@
-import { CollapseEffect } from './collapse.jsx'
+import { CollapseEffect } from '@/components/accordion/accordion.jsx'
 
 export function Contact() {
     return <main id="contact">

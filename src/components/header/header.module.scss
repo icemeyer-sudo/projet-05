@@ -1,0 +1,36 @@
+@use "../../scss/variables" as *;
+
+header {
+    width: 100%;
+    max-width: 1240px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+        width: 210px;
+        @media (max-width: $w-smartphone) {
+            width: 145px;
+        }
+    }
+    .__nav {
+        display: flex;
+        ul {
+            display: flex;
+            gap: 57px;
+
+            li {
+                font-size: 24px;
+
+                @media (max-width: $w-smartphone) {
+                    font-size: 12px;
+                    text-transform: uppercase;
+                }
+            }
+
+            @media (max-width: $w-smartphone) {
+                gap: 26px;
+            }
+        }
+    }
+}

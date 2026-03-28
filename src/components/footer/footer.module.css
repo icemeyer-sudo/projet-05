@@ -1,0 +1,31 @@
+footer {
+  width: 100%;
+  max-width: 1240px;
+  height: 143px;
+  color: white;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+  padding-top: 66px;
+  align-items: center;
+}
+footer div {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 480px) {
+  footer div {
+    width: 115px;
+  }
+}
+footer p {
+  font-size: 24px;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  footer p {
+    font-size: 12px;
+    width: 115px;
+  }
+}/*# sourceMappingURL=footer.module.css.map */

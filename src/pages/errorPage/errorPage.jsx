@@ -1,9 +1,8 @@
-import {useRouteError} from "react-router-dom";
-import {Header} from "./header.jsx";
-import {Footer} from "./footer.jsx";
-import {Link} from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
+import { Header } from "../../components/header/header.jsx";
+import { Footer } from "../../components/footer/footer.jsx";
 
-export function PageError() {
+export function ErrorPage() {
     return <>
         <Header/>
         <MainError/>

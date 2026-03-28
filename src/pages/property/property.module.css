@@ -1,0 +1,10 @@
+.collapse-container {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 375px) {
+  .collapse-container {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=property.module.css.map */
