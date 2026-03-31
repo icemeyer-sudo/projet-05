@@ -18,6 +18,7 @@
 }
 .carousel img {
   width: 100%;
+  min-height: 255px;
   aspect-ratio: 3/1;
   -o-object-fit: cover;
      object-fit: cover;
@@ -25,6 +26,12 @@
   display: block;
   flex-shrink: 0;
   flex-grow: 0;
+}
+@media (max-width: 565px) {
+  .carousel img {
+    min-height: auto;
+    aspect-ratio: 335/255;
+  }
 }
 .carousel .carousel__arrow {
   position: absolute;

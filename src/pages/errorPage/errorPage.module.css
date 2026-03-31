@@ -1,0 +1,48 @@
+#__page-error {
+  text-align: center;
+  margin-top: 100px;
+}
+#__page-error h2 {
+  font-size: 288px;
+  font-weight: 700;
+  color: #FF6060;
+}
+@media (max-width: 565px) {
+  #__page-error h2 {
+    font-size: 144px;
+  }
+}
+@media (min-width: 565px) and (max-width: 1023px) {
+  #__page-error h2 {
+    font-size: 216px;
+  }
+}
+#__page-error .--text {
+  margin-top: 100px;
+  font-size: 36px;
+  color: #FF6060;
+}
+@media (max-width: 565px) {
+  #__page-error .--text {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+@media (min-width: 565px) and (max-width: 1023px) {
+  #__page-error .--text {
+    font-size: 27px;
+  }
+}
+#__page-error .--link {
+  margin-top: 100px;
+  font-size: 18px;
+  margin-bottom: 100px;
+}
+#__page-error .--link a {
+  border-bottom: 1px solid #E3E3E3;
+}
+@media (max-width: 565px) {
+  #__page-error .--link {
+    line-height: 25px;
+  }
+}/*# sourceMappingURL=errorPage.module.css.map */

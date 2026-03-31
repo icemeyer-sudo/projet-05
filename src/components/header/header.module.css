@@ -9,7 +9,7 @@ header {
 header img {
   width: 210px;
 }
-@media (max-width: 480px) {
+@media (max-width: 565px) {
   header img {
     width: 145px;
   }
@@ -19,19 +19,31 @@ header .__nav {
 }
 header .__nav ul {
   display: flex;
+  flex-wrap: wrap;
   gap: 57px;
+  justify-content: right;
 }
 header .__nav ul li {
   font-size: 24px;
 }
-@media (max-width: 480px) {
+@media (max-width: 565px) {
   header .__nav ul li {
     font-size: 12px;
     text-transform: uppercase;
   }
 }
-@media (max-width: 480px) {
+@media (min-width: 565px) and (max-width: 1023px) {
+  header .__nav ul li {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1023px) and (max-width: 1240px) {
+  header .__nav ul li {
+    font-size: 20px;
+  }
+}
+@media (max-width: 565px) {
   header .__nav ul {
-    gap: 26px;
+    gap: 23px;
   }
 }/*# sourceMappingURL=header.module.css.map */

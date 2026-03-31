@@ -32,7 +32,7 @@ export function CollapseEffect({name, content}) {
         <div className={ styles["collapse"] }>
             <div className={ styles["title"] } onClick={handleCollapse}>
                 <h3>{ name }</h3>
-                <span className={ `fa-solid fa-angle-down ${styles["fa-angle-down"]} ${ rotated ? styles["rotated"] : '' }` }></span>
+                <span className={ `fa-solid fa-angle-up ${styles["fa-angle-up"]} ${ rotated ? styles["rotated"] : '' }` }></span>
             </div>
             <div className={`${ styles["textInCollapse"] } ${collapse ? styles["active"] : ''}`}>
                 <div className={styles["content"]}>

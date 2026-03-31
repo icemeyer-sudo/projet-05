@@ -1,3 +1,5 @@
+@use "../../scss/variables" as *;
+
 .carousel {
     width: 100%;
     position: relative;
@@ -21,12 +23,18 @@
 
     img {
         width: 100%;
+        min-height: 255px;
         aspect-ratio: 3/1;
         object-fit: cover;
         border-radius: 25px;
         display: block;
         flex-shrink: 0;
         flex-grow: 0;
+
+        @media (max-width: $w-smartphone) {
+            min-height: auto;
+            aspect-ratio: 335/255;
+        }
     }
 
     .carousel__arrow {

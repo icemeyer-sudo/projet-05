@@ -22,7 +22,7 @@
 .collapse .title .rotated {
   transform: rotate(180deg);
 }
-.collapse .title .fa-angle-down {
+.collapse .title .fa-angle-up {
   transition: transform 0.3s ease;
 }
 .collapse .textInCollapse {

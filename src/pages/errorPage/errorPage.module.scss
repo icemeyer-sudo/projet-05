@@ -1,0 +1,45 @@
+@use "../../scss/variables" as *;
+
+#__page-error {
+    text-align: center;
+    margin-top: 100px;
+    h2 {
+        font-size: 288px;
+        font-weight: 700;
+        color: $red-color;
+
+        @media (max-width: $w-smartphone) {
+            font-size: 144px;
+        }
+
+        @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
+            font-size: 216px;
+        }
+    }
+    .--text {
+        margin-top: 100px;
+        font-size: 36px;
+        color: $red-color;
+
+        @media (max-width: $w-smartphone) {
+            font-size: 18px;
+            line-height: 25px;
+        }
+
+        @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
+            font-size: 27px;
+        }
+    }
+    .--link {
+        margin-top: 100px;
+        font-size: 18px;
+        margin-bottom: 100px;
+        a {
+            border-bottom: 1px solid #E3E3E3;
+        }
+
+        @media (max-width: $w-smartphone) {
+            line-height: 25px;
+        }
+    }
+}

@@ -3,6 +3,7 @@ import { Header } from "@/components/header/header.jsx";
 import { Footer } from "@/components/footer/footer.jsx";
 import { Index } from "@/pages/index/index.jsx";
 import { Contact } from "@/pages/contact/contact.jsx";
+import { Ui } from "@/pages/ui/ui.jsx";
 import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
 import { Property } from "@/pages/property/property.jsx";
 
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Root/>,
-        errorElement: <ErrorPage/>,
+        errorElement: <MainErrorPage/>,
         children: [
             {
                 path: '',
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             {
                 path: 'contact',
                 element: <Contact/>
+            },
+            {
+                path: 'ui',
+                element: <Ui/>
             }
         ]
     }
@@ -42,6 +47,15 @@ function Root() {
         <ScrollRestoration/>
         <Header/>
         <Outlet/>
+        <Footer/>
+    </>
+}
+
+function MainErrorPage() {
+    return <>
+        <ScrollRestoration/>
+        <Header/>
+        <ErrorPage/>
         <Footer/>
     </>
 }

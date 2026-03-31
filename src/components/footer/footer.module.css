@@ -14,7 +14,7 @@ footer div {
   display: flex;
   justify-content: center;
 }
-@media (max-width: 480px) {
+@media (max-width: 565px) {
   footer div {
     width: 115px;
   }
@@ -23,7 +23,7 @@ footer p {
   font-size: 24px;
   text-align: center;
 }
-@media (max-width: 480px) {
+@media (max-width: 565px) {
   footer p {
     font-size: 12px;
     width: 115px;
