@@ -1,11 +1,22 @@
-import data from '../../bdd/data.json';
 import { Link } from "react-router-dom";
+import { getProperties } from "../../bdd/getProperties.js"
+import { useState, useEffect } from "react";
 import styles from "./index.module.css";
 
 export function Index() {
+    const [properties, setProperties] = useState([]);
+    useEffect(() => {
+        getProperties()
+        .then((results) => {
+            setProperties(results);
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+    },[]);
     return <main>
         <Section__banner/>
-        <Section__gallery/>
+        <Section__gallery properties={properties}/>
     </main>
 }
 
@@ -15,10 +26,10 @@ function Section__banner() {
     </section>
 }
 
-function Section__gallery() {
+function Section__gallery({properties}) {
     return <section className={styles["section__gallery"]}>
         <div className={styles["section__gallery--div"]}>
-            {data.map((work) => (
+            {properties.map((work) => (
                 <Card work={work} key={work.id}/>
             ))}
         </div>

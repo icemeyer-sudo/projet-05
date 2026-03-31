@@ -2,23 +2,48 @@ import { useParams } from "react-router-dom";
 import { CollapseEffect } from '@/components/accordion/accordion.jsx'
 import { Carousel } from '@/components/carousel/carousel.jsx';
 import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
+import { useState, useEffect } from "react";
+import { getAccomodation } from "../../bdd/getAccomodation.js"
+import { getTags } from "../../bdd/getTags.js"
+import { getEquipments } from "../../bdd/getEquipments.js"
+import { getPictures } from "../../bdd/getPictures.js"
 import styles from './property.module.css';
-import data from '@/bdd/data.json';
 
 export function Property () {
     const { id } = useParams();
-    const accommodation = data.find((accommodation) => accommodation.id === id);
+    //const accommodation = data.find((accommodation) => accommodation.id === id);
+    const [accommodation, setAccomodation] = useState();
+    const [pictures, setPictures] = useState();
+    const [tags, setTags] = useState();
+    const [equipments, setEquipments] = useState();
+        useEffect(() => {
+            Promise.all([
+                getAccomodation(id),
+                getPictures(id),
+                getTags(id),
+                getEquipments(id)
+            ])
+            .then((accodomationResults, picturesResults, tagsResults, equipmentsResults) => {
+                setAccomodation(accodomationResults);
+                setPictures(picturesResults);
+                setTags(tagsResults);
+                setEquipments(equipmentsResults);
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+        },[]);
     if(!accommodation) {
         return <ErrorPage/>;
     }
     return <main id={styles["fiche"]}>
-        <Carousel pictures={accommodation.pictures}/>
-        <Article accommodation={accommodation}/>
+        <Carousel pictures={pictures}/>
+        <Article accommodation={[accommodation, tags, equipments]}/>
     </main>
 }
 
 function Article(props) {
-    const {title, location, host, rating, tags, description, equipments} = props.accommodation;
+    const {title, location, host, rating, description} = props.accommodation;
     return <>
             <article className={styles["__article"]}>
                 <div className={styles["article-box"]}>
