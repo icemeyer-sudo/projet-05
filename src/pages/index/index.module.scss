@@ -1,161 +1,183 @@
 @use "../../scss/variables" as *;
 
-main {
+.index__banner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1240 / 225;
+    position: relative;
+    min-height: 111px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/background.png");
+        background-size: cover;
+        background-position: center;
+        border-radius: 25px;
+        filter: brightness(40%);
+        z-index: 1;
+    }
+
+    h1 {
+        font-weight: 700;
+        font-size: 48px;
+        color: white;
+        z-index: 2;
+        margin: 16px;
+
+        @media (max-width: $w-smartphone) {
+            font-size: 24px;
+        }
+
+        @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
+            font-size: 36px;
+        }
+
+    }
+
+    @media (max-width: $w-smartphone) {
+        justify-content: left;
+    }
+}
+
+.section__gallery {
     width: 100%;
     max-width: 1240px;
-    margin: 50px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #F6F6F6;
+    border-radius: 25px;
+    margin-top: 50px;
+
     @media (max-width: $w-smartphone) {
-        margin: 25px 0;
+        background-color: white;
+        margin-top: 20px;
     }
 
-    @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
-        margin: 35px 0;
-    }
+    .section__gallery--div {
+        display: grid;
+        gap: 56px;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 56px;
 
-    @media (min-width: $w-tablets) and (max-width: $w-desktop) {
-        margin: 40px 0;
-    }
+        @media (max-width: $w-smartphone) {
+            display: flex;
+            flex-direction: column;
+            margin: 0px;
+            gap: 20px;
+        }
 
-    .index__banner {
+        @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin: 28px;
+        }
+
+        @media (min-width: $w-tablets) and (max-width: $w-desktop) {
+            gap: 44px;
+            margin: 44px;
+        }
+
+
+    }
+    article {
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        aspect-ratio: 1240 / 225;
+        aspect-ratio: 1/1;
+        border-radius: 10px;
         position: relative;
-        min-height: 111px;
-        &::before {
+
+        @media (max-width: $w-smartphone) {
+            aspect-ratio: 335/225;
+        }
+
+        @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
+            aspect-ratio: 335/225;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        &::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background-image: url("/background.png");
-            background-size: cover;
-            background-position: center;
-            border-radius: 25px;
-            filter: brightness(40%);
-            z-index: 1;
-        }
-
-        h1 {
-            font-weight: 700;
-            font-size: 48px;
-            color: white;
-            z-index: 2;
-            margin: 16px;
-
-            @media (max-width: $w-smartphone) {
-                font-size: 24px;
-            }
-
-            @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
-                font-size: 36px;
-            }
-
-        }
-
-        @media (max-width: $w-smartphone) {
-            justify-content: left;
-        }
-    }
-
-    .section__gallery {
-        width: 100%;
-        max-width: 1240px;
-        background-color: #F6F6F6;
-        border-radius: 25px;
-        margin-top: 50px;
-
-        @media (max-width: $w-smartphone) {
-            background-color: white;
-            margin-top: 20px;
-        }
-
-        .section__gallery--div {
-            display: grid;
-            gap: 56px;
-            grid-template-columns: 1fr 1fr 1fr;
-            margin: 56px;
-
-            @media (max-width: $w-smartphone) {
-                display: flex;
-                flex-direction: column;
-                margin: 0px;
-                gap: 20px;
-            }
-
-            @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
-                grid-template-columns: 1fr 1fr;
-                gap: 28px;
-                margin: 28px;
-            }
-
-            @media (min-width: $w-tablets) and (max-width: $w-desktop) {
-                gap: 44px;
-                margin: 44px;
-            }
-
-
-        }
-        article {
-            width: 100%;
-            aspect-ratio: 1/1;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.5) 100%);
             border-radius: 10px;
-            position: relative;
+            z-index: 1;
+            pointer-events: none;
+        }
+        div {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            z-index: 2;
+            width: 100%;
+            h2 {
+                padding: 20px;
+                color: white;
+                font-size: 18px;
 
-            @media (max-width: $w-smartphone) {
-                aspect-ratio: 335/225;
-            }
+                @media (max-width: $w-smartphone) {
+                    padding: 10px;
+                    font-size: 16px;
+                }
 
-            @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
-                aspect-ratio: 335/225;
-            }
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 10px;
-            }
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.5) 100%);
-                border-radius: 10px;
-                z-index: 1;
-                pointer-events: none;
-            }
-            div {
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-                z-index: 2;
-                width: 100%;
-                h2 {
-                    padding: 20px;
-                    color: white;
-                    font-size: 18px;
-
-                    @media (max-width: $w-smartphone) {
-                        padding: 10px;
-                        font-size: 16px;
-                    }
-
-                    @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
-                        padding: 10px;
-                        font-size: 16px;
-                    }
+                @media (min-width: $w-smartphone) and (max-width: $w-tablets) {
+                    padding: 10px;
+                    font-size: 16px;
                 }
             }
         }
     }
+}
+
+.pagination-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    padding: 3px 0;
+    background-color: $red-color;
+    color: white;
+    border: 1px solid #FF6060;
+}
+
+.pagination-btn:hover {
+    background-color: white;
+}
+
+.pagination-btn:visited {
+  color: white;
+}
+
+.pagination-btn:hover {
+  background-color: white;
+  color: $red-color;
+}
+
+.pagination-btn-active {
+  background-color: white;
+  color: $red-color;
+  border: 1px solid #FF6060;
+}
+
+.pagination-btn-active:visited {
+    color: $red-color;
 }

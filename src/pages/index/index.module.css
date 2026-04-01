@@ -1,27 +1,4 @@
-main {
-  width: 100%;
-  max-width: 1240px;
-  margin: 50px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-@media (max-width: 565px) {
-  main {
-    margin: 25px 0;
-  }
-}
-@media (min-width: 565px) and (max-width: 1023px) {
-  main {
-    margin: 35px 0;
-  }
-}
-@media (min-width: 1023px) and (max-width: 1240px) {
-  main {
-    margin: 40px 0;
-  }
-}
-main .index__banner {
+.index__banner {
   width: 100%;
   display: flex;
   align-items: center;
@@ -30,7 +7,7 @@ main .index__banner {
   position: relative;
   min-height: 111px;
 }
-main .index__banner::before {
+.index__banner::before {
   content: "";
   position: absolute;
   top: 0;
@@ -44,7 +21,7 @@ main .index__banner::before {
   filter: brightness(40%);
   z-index: 1;
 }
-main .index__banner h1 {
+.index__banner h1 {
   font-weight: 700;
   font-size: 48px;
   color: white;
@@ -52,21 +29,22 @@ main .index__banner h1 {
   margin: 16px;
 }
 @media (max-width: 565px) {
-  main .index__banner h1 {
+  .index__banner h1 {
     font-size: 24px;
   }
 }
 @media (min-width: 565px) and (max-width: 1023px) {
-  main .index__banner h1 {
+  .index__banner h1 {
     font-size: 36px;
   }
 }
 @media (max-width: 565px) {
-  main .index__banner {
+  .index__banner {
     justify-content: left;
   }
 }
-main .section__gallery {
+
+.section__gallery {
   width: 100%;
   max-width: 1240px;
   background-color: #F6F6F6;
@@ -74,19 +52,19 @@ main .section__gallery {
   margin-top: 50px;
 }
 @media (max-width: 565px) {
-  main .section__gallery {
+  .section__gallery {
     background-color: white;
     margin-top: 20px;
   }
 }
-main .section__gallery .section__gallery--div {
+.section__gallery .section__gallery--div {
   display: grid;
   gap: 56px;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 56px;
 }
 @media (max-width: 565px) {
-  main .section__gallery .section__gallery--div {
+  .section__gallery .section__gallery--div {
     display: flex;
     flex-direction: column;
     margin: 0px;
@@ -94,42 +72,42 @@ main .section__gallery .section__gallery--div {
   }
 }
 @media (min-width: 565px) and (max-width: 1023px) {
-  main .section__gallery .section__gallery--div {
+  .section__gallery .section__gallery--div {
     grid-template-columns: 1fr 1fr;
     gap: 28px;
     margin: 28px;
   }
 }
 @media (min-width: 1023px) and (max-width: 1240px) {
-  main .section__gallery .section__gallery--div {
+  .section__gallery .section__gallery--div {
     gap: 44px;
     margin: 44px;
   }
 }
-main .section__gallery article {
+.section__gallery article {
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 10px;
   position: relative;
 }
 @media (max-width: 565px) {
-  main .section__gallery article {
+  .section__gallery article {
     aspect-ratio: 335/225;
   }
 }
 @media (min-width: 565px) and (max-width: 1023px) {
-  main .section__gallery article {
+  .section__gallery article {
     aspect-ratio: 335/225;
   }
 }
-main .section__gallery article img {
+.section__gallery article img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-main .section__gallery article::after {
+.section__gallery article::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -141,27 +119,69 @@ main .section__gallery article::after {
   z-index: 1;
   pointer-events: none;
 }
-main .section__gallery article div {
+.section__gallery article div {
   position: absolute;
   bottom: 0px;
   left: 0px;
   z-index: 2;
   width: 100%;
 }
-main .section__gallery article div h2 {
+.section__gallery article div h2 {
   padding: 20px;
   color: white;
   font-size: 18px;
 }
 @media (max-width: 565px) {
-  main .section__gallery article div h2 {
+  .section__gallery article div h2 {
     padding: 10px;
     font-size: 16px;
   }
 }
 @media (min-width: 565px) and (max-width: 1023px) {
-  main .section__gallery article div h2 {
+  .section__gallery article div h2 {
     padding: 10px;
     font-size: 16px;
   }
+}
+
+.pagination-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  padding: 3px 0;
+  background-color: #FF6060;
+  color: white;
+  border: 1px solid #FF6060;
+}
+
+.pagination-btn:hover {
+  background-color: white;
+}
+
+.pagination-btn:visited {
+  color: white;
+}
+
+.pagination-btn:hover {
+  background-color: white;
+  color: #FF6060;
+}
+
+.pagination-btn-active {
+  background-color: white;
+  color: #FF6060;
+  border: 1px solid #FF6060;
+}
+
+.pagination-btn-active:visited {
+  color: #FF6060;
 }/*# sourceMappingURL=index.module.css.map */

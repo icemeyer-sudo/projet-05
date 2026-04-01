@@ -9,5 +9,8 @@ export function getPictures(id) {
         if(response.status === 200) {
             return response.json();
         }
-    });
+    })
+    .then((data) => {
+        return data.map((picture) => picture.url)
+    })
 }

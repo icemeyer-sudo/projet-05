@@ -11,39 +11,56 @@ import styles from './property.module.css';
 
 export function Property () {
     const { id } = useParams();
-    //const accommodation = data.find((accommodation) => accommodation.id === id);
-    const [accommodation, setAccomodation] = useState();
-    const [pictures, setPictures] = useState();
-    const [tags, setTags] = useState();
-    const [equipments, setEquipments] = useState();
-        useEffect(() => {
-            Promise.all([
-                getAccomodation(id),
-                getPictures(id),
-                getTags(id),
-                getEquipments(id)
-            ])
-            .then((accodomationResults, picturesResults, tagsResults, equipmentsResults) => {
-                setAccomodation(accodomationResults);
-                setPictures(picturesResults);
-                setTags(tagsResults);
-                setEquipments(equipmentsResults);
-            })
-            .catch((error) => {
-                console.error(error)
-            })
-        },[]);
-    if(!accommodation) {
-        return <ErrorPage/>;
+    const [accomodation, setAccomodation] = useState(null);
+    const [tags, setTags] = useState(null);
+    const [equipments, setEquipments] = useState(null);
+    const [pictures, setPictures] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        let isMounted = true;
+        Promise.all([
+            getAccomodation(id),
+            getTags(id),
+            getEquipments(id),
+            getPictures(id)
+        ])
+        .then(([accomodationResults, tagsResults, equipmentsResults, picturesResults]) => {
+            if(isMounted) {
+                setAccomodation(accomodationResults)
+                setTags(tagsResults)
+                setEquipments(equipmentsResults)
+                setPictures(picturesResults)
+            }
+        })
+        .catch(() => {
+            console.log("ERREUR AVEC L'API")
+        })
+        .finally(() => {
+            if(isMounted) {
+                setLoading(false)
+            }
+        })
+    }, [id]);
+
+    if(loading === false) {
+        if(!accomodation) {
+            return <ErrorPage/>;
+        }
+        return <>
+            <main id={styles["fiche"]}>
+                {pictures && <Carousel pictures={pictures}/>}
+                {accomodation && tags && equipments && <Article accommodation={accomodation} tags={tags} equipments={equipments}/>}
+            </main>
+        </>
+    } else {
+        return <p>Chargement...</p>
     }
-    return <main id={styles["fiche"]}>
-        <Carousel pictures={pictures}/>
-        <Article accommodation={[accommodation, tags, equipments]}/>
-    </main>
 }
 
-function Article(props) {
-    const {title, location, host, rating, description} = props.accommodation;
+function Article({ accommodation, tags, equipments }) {
+    const {title, location, host_name: name, host_picture: picture, rating, description} = accommodation;
+    const host = { name, picture };
     return <>
             <article className={styles["__article"]}>
                 <div className={styles["article-box"]}>
@@ -66,7 +83,6 @@ function Header({title, location, tags}) {
         </div>
     </div>
 }
-
 
 function TagsAndRating({host, rating}) {
     const [firstName = "", lastName = ""] = host.name.split(" ");

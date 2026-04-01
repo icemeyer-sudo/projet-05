@@ -18,6 +18,10 @@ export const router = createBrowserRouter([
                 element: <Index/>
             },
             {
+                path: 'page/:page',
+                element: <Index/>
+            },
+            {
                 path: 'fiche-logement',
                 children: [
                     {
