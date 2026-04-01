@@ -4,7 +4,7 @@ import { CollapseEffect } from '@/components/accordion/accordion.jsx'
 import { Carousel } from '@/components/carousel/carousel.jsx';
 import styles from './property.module.css';
 
-export function Property () {
+export default function Property () {
     const {id} = useParams();
     const accommodation = data.find((accommodation) => accommodation.id === id);
     if(!accommodation) {

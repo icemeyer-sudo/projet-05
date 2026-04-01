@@ -1,16 +1,35 @@
 import { createBrowserRouter, Outlet, ScrollRestoration } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { Header } from "@/components/header/header.jsx";
 import { Footer } from "@/components/footer/footer.jsx";
 import { Index } from "@/pages/index/index.jsx";
-import { Contact } from "@/pages/contact/contact.jsx";
-import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
-import { Property } from "@/pages/property/property.jsx";
+const ErrorPage = lazy(() => import("@/pages/errorPage/errorPage.jsx"));
+const Contact = lazy(() => import("@/pages/contact/contact.jsx"));
+const Property = lazy(() => import("@/pages/property/property.jsx"));
+
+const ErrorPageFallback = (
+    <Suspense fallback={<div>Chargement...</div>}>
+        <ErrorPage/>
+    </Suspense>
+);
+
+const ContactFallback = (
+    <Suspense fallback={<div>Chargement...</div>}>
+        <Contact/>
+    </Suspense>
+);
+
+const PropertyFallback = (
+    <Suspense fallback={<div>Chargement...</div>}>
+        <Property/>
+    </Suspense>
+);
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Root/>,
-        errorElement: <ErrorPage/>,
+        errorElement: ErrorPageFallback,
         children: [
             {
                 path: '',
@@ -21,17 +40,17 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: '',
-                        element: <ErrorPage/>
+                        element: ErrorPageFallback
                     },
                     {
                         path: ':id',
-                        element: <Property/>
+                        element: PropertyFallback
                     }
                 ]
             },
             {
                 path: 'contact',
-                element: <Contact/>
+                element: ContactFallback
             }
         ]
     }

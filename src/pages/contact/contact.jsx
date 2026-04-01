@@ -1,6 +1,6 @@
 import { CollapseEffect } from '@/components/accordion/accordion.jsx'
 
-export function Contact() {
+export default function Contact() {
     return <main id="contact">
         <Section__banner/>
         <Section__contact/>
