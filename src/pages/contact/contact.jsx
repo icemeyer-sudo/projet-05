@@ -1,4 +1,5 @@
 import { CollapseEffect } from '@/components/accordion/accordion.jsx'
+import styles from "./contact.module.css";
 
 export default function Contact() {
     return <main id="contact">
@@ -8,13 +9,13 @@ export default function Contact() {
 }
 
 function Section__banner() {
-    return <section className="contact__banner">
+    return <section className={styles["contact__banner"]}>
     </section>
 }
 
 function Section__contact() {
     return <section>
-        <div className="contact__list">
+        <div className={styles["contact__list"]}>
             <CollapseEffect name="Fiabilité" content="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes."/>
             <CollapseEffect name="Respect" content="La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme."/>
             <CollapseEffect name="Service" content="La qualité du service est au cœur de notre engagement chez Kasa. Nous veillons à ce que chaque interaction, que ce soit avec nos hôtes ou nos locataires, soit empreinte de respect et de bienveillance."/>

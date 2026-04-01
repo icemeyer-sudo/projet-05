@@ -65,3 +65,12 @@ function Root() {
         <Footer/>
     </>
 }
+
+function MainErrorPage() {
+    return <>
+        <ScrollRestoration/>
+        <Header/>
+        <ErrorPage/>
+        <Footer/>
+    </>
+}
