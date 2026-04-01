@@ -23,6 +23,7 @@ const PropertyFallback = (
     <Suspense fallback={<div>Chargement...</div>}>
         <Property/>
     </Suspense>
+
 );
 
 export const router = createBrowserRouter([
