@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { CollapseEffect } from '@/components/accordion/accordion.jsx'
+import { Accordion } from '@/components/accordion/accordion.jsx'
 import { Carousel } from '@/components/carousel/carousel.jsx';
 import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
 import { useState, useEffect } from "react";
@@ -105,8 +105,8 @@ function TagsAndRating({host, rating}) {
 function Collapse({description, equipments}) {
     return <>
         <div className={styles["collapse-container"]}>
-            <CollapseEffect name="Description" content={description}/>
-            <CollapseEffect name="Équipement" content={equipments}/>
+            <Accordion name="Description" content={description}/>
+            <Accordion name="Équipement" content={equipments}/>
         </div>
     </>
 }

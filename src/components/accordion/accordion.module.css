@@ -12,6 +12,7 @@
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
+  border: none;
   cursor: pointer;
 }
 .collapse .title span, .collapse .title h3 {

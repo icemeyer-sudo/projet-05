@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './accordion.module.css';
 
-export function CollapseEffect({name, content}) {
+export function Accordion({name, content}) {
     const [collapse, setCollapse] = useState(false);
     const [rotated, setRotated] = useState(false);
 
@@ -30,10 +30,10 @@ export function CollapseEffect({name, content}) {
 
     return <>
         <div className={ styles["collapse"] }>
-            <div className={ styles["title"] } onClick={handleCollapse}>
+            <button className={ styles["title"] } onClick={handleCollapse}>
                 <h3>{ name }</h3>
                 <span className={ `fa-solid fa-angle-up ${styles["fa-angle-up"]} ${ rotated ? styles["rotated"] : '' }` }></span>
-            </div>
+            </button>
             <div className={`${ styles["textInCollapse"] } ${collapse ? styles["active"] : ''}`}>
                 <div className={styles["content"]}>
                     {renderContent()}
