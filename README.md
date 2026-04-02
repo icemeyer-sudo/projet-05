@@ -11,7 +11,6 @@ Objectifs fonctionnels du projet :
 - naviguer vers une page de detail via un identifiant dynamique,
 - proposer une page de contact avec des sections collapsables,
 - gerer les erreurs de navigation avec une page dediee,
-- paginer la galerie d'accueil via une route dynamique.
 
 ## Stack Technique
 
@@ -38,10 +37,8 @@ src/
     pages/
         index/
             index.jsx
-            indexPlaceholder.jsx
         property/
             property.jsx
-            propertyPlaceholder.jsx
         contact/
             contact.jsx
         errorPage/
@@ -118,4 +115,4 @@ npm run lint
 
 ## Auteur
 
-Projet realise par Leonie Dobbelstein dans le cadre de la formation OpenClassrooms.
+Projet realise par Didier MEYER dans le cadre de la formation OpenClassrooms.
