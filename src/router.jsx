@@ -1,11 +1,13 @@
 import { createBrowserRouter, Outlet, ScrollRestoration } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { Header } from "@/components/header/header.jsx";
 import { Footer } from "@/components/footer/footer.jsx";
-import { Index } from "@/pages/index/index.jsx";
-import { Contact } from "@/pages/contact/contact.jsx";
-import { Ui } from "@/pages/ui/ui.jsx";
 import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
-import { Property } from "@/pages/property/property.jsx";
+
+const Index    = lazy(() => import("@/pages/index/index.jsx"));
+const Contact  = lazy(() => import("@/pages/contact/contact.jsx"));
+const Ui       = lazy(() => import("@/pages/ui/ui.jsx"));
+const Property = lazy(() => import("@/pages/property/property.jsx"));
 
 export const router = createBrowserRouter([
     {
@@ -46,7 +48,9 @@ function Root() {
     return <>
         <ScrollRestoration/>
         <Header/>
-        <Outlet/>
+        <Suspense fallback={<div>Chargement...</div>}>
+            <Outlet />
+        </Suspense>
         <Footer/>
     </>
 }

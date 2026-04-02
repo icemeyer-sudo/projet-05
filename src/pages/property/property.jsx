@@ -5,7 +5,7 @@ import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
 import styles from './property.module.css';
 import data from '@/bdd/data.json';
 
-export function Property () {
+export default function Property () {
     const { id } = useParams();
     const accommodation = data.find((accommodation) => accommodation.id === id);
     if(!accommodation) {
