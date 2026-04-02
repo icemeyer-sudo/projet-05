@@ -1,11 +1,15 @@
 import { createBrowserRouter, Outlet, ScrollRestoration } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { Header } from "@/components/header/header.jsx";
 import { Footer } from "@/components/footer/footer.jsx";
-import { Index } from "@/pages/index/index.jsx";
-import { Contact } from "@/pages/contact/contact.jsx";
-import { Ui } from "@/pages/ui/ui.jsx";
 import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
-import { Property } from "@/pages/property/property.jsx";
+import IndexPlaceholder from "@/pages/index/indexPlaceholder.jsx";
+import PropertyPlaceholder from "@/pages/property/propertyPlaceholder.jsx";
+
+const Index    = lazy(() => import("@/pages/index/index.jsx"));
+const Contact  = lazy(() => import("@/pages/contact/contact.jsx"));
+const Ui       = lazy(() => import("@/pages/ui/ui.jsx"));
+const Property = lazy(() => import("@/pages/property/property.jsx"));
 
 export const router = createBrowserRouter([
     {
@@ -15,11 +19,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '',
-                element: <Index/>
+                element: <Suspense fallback={<IndexPlaceholder/>}><Index/></Suspense>
             },
             {
                 path: 'page/:page',
-                element: <Index/>
+                element: <Suspense fallback={<IndexPlaceholder/>}><Index/></Suspense>
             },
             {
                 path: 'fiche-logement',
@@ -30,7 +34,7 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: ':id',
-                        element: <Property/>
+                        element: <Suspense fallback={<PropertyPlaceholder/>}><Property/></Suspense>
                     }
                 ]
             },

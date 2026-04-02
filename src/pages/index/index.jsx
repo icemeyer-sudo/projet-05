@@ -4,8 +4,9 @@ import { getCountProperties } from "../../bdd/getCountProperties.js"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import styles from "./index.module.css";
+import IndexPlaceholder from "@/pages/index/indexPlaceholder.jsx";
 
-export function Index() {
+export default function Index() {
     const [properties, setProperties] = useState([]);
     const [numberOfProperties, setNumberOfProperties] = useState();
     const [loading, setLoading] = useState(true);
@@ -54,7 +55,7 @@ export function Index() {
         </>
     } else {
         return <>
-            <p>En chargement...</p>
+            <IndexPlaceholder/>
         </>
     }
 }

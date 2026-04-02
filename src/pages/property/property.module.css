@@ -33,6 +33,7 @@
 }
 #fiche .__article .--header h1 {
   font-size: 36px;
+  min-height: 40px;
   font-weight: 500;
   color: #FF6060;
   line-height: 143%;
@@ -55,6 +56,7 @@
 #fiche .__article .--header h2 {
   font-size: 18px;
   margin-top: 7px;
+  min-height: 18px;
 }
 @media (max-width: 565px) {
   #fiche .__article .--header h2 {
@@ -137,6 +139,7 @@
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+  background-color: #E3E3E3;
 }
 @media (max-width: 565px) {
   #fiche .__article .--tagsAndRating .--owner img {
@@ -146,6 +149,24 @@
 }
 @media (min-width: 565px) and (max-width: 1023px) {
   #fiche .__article .--tagsAndRating .--owner img {
+    width: 50px;
+    height: 50px;
+  }
+}
+#fiche .__article .--tagsAndRating .--owner .img-owner-placeholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.5) 100%);
+}
+@media (max-width: 565px) {
+  #fiche .__article .--tagsAndRating .--owner .img-owner-placeholder {
+    width: 42px;
+    height: 42px;
+  }
+}
+@media (min-width: 565px) and (max-width: 1023px) {
+  #fiche .__article .--tagsAndRating .--owner .img-owner-placeholder {
     width: 50px;
     height: 50px;
   }

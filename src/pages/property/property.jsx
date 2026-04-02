@@ -8,8 +8,9 @@ import { getTags } from "../../bdd/getTags.js"
 import { getEquipments } from "../../bdd/getEquipments.js"
 import { getPictures } from "../../bdd/getPictures.js"
 import styles from './property.module.css';
+import PropertyPlaceholder from "./PropertyPlaceholder.jsx"
 
-export function Property () {
+export default function Property () {
     const { id } = useParams();
     const [accomodation, setAccomodation] = useState(null);
     const [tags, setTags] = useState(null);
@@ -54,7 +55,7 @@ export function Property () {
             </main>
         </>
     } else {
-        return <p>Chargement...</p>
+        return <PropertyPlaceholder/>
     }
 }
 
