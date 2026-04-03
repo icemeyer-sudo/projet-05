@@ -10,43 +10,53 @@ Objectifs fonctionnels du projet :
 - afficher une galerie de logements depuis des donnees JSON,
 - naviguer vers une page de detail via un identifiant dynamique,
 - proposer une page de contact avec des sections collapsables,
-- gerer les erreurs de navigation avec une page dediee.
+- gerer les erreurs de navigation avec une page dediee,
 
 ## Stack Technique
 
 - React 19
-- React Router
+- React Router DOM 7
 - Vite
 - Sass (SCSS)
 - ESLint
-- Font Awesome
+- Font Awesome (SVG via @fortawesome/react-fontawesome)
 
 ## Architecture
 
-```text
 src/
-	App.jsx
-	main.jsx
-	bdd/
-		data.json
-	layout/
-		Router.jsx
-		Header.jsx
-		Footer.jsx
-		Index.jsx
-		Contact.jsx
-		AccommodationDetails.jsx
-		PageError.jsx
-		collapse.jsx
-	scss/
-		style.scss
-```
+    main.jsx
+    App.jsx
+    router.jsx
+    bdd/
+        data.json
+    components/
+        accordion/
+        carousel/
+        footer/
+        header/
+    pages/
+        index/
+            index.jsx
+        property/
+            property.jsx
+        contact/
+            contact.jsx
+        errorPage/
+            errorPage.jsx
+        ui/
+            ui.jsx
+    scss/
+        _variables.scss
+        style.scss
 
 ## Routes
 
 - `/` : page d'accueil
+- `/page/:page` : page d'accueil paginée
 - `/contact` : page de contact
-- `/fiche-logement/:id` : fiche detaillee d'un logement
+- `/fiche-logement/:id` : fiche detaillée d'un logement
+- `/fiche-logement` : redirige vers la page d'erreur
+- `*` : page d'erreur (routes inconnues)
 
 ## Lancer Le Projet
 
@@ -90,9 +100,11 @@ npm run lint
 ## Choix Techniques
 
 - Routage centralise avec `createBrowserRouter` pour structurer les pages et la gestion d'erreur.
-- Separation claire presentation/logique via des composants dedies dans `src/layout`.
+- Chargement paresseux (`React.lazy`) des pages avec `Suspense` et composants placeholder dedies par page.
+- Separation claire composants de mise en page (`components/`) et pages (`pages/`).
 - Donnees mockees locales (`src/bdd/data.json`) pour developper sans dependance API.
-- Style global en SCSS avec organisation par zones de page.
+- Style en SCSS modules par composant avec variables globales partagees.
+- Alias de chemin `@/` configure dans Vite et jsconfig pour des imports absolus.
 
 ## Ameliorations Possibles
 
@@ -103,4 +115,4 @@ npm run lint
 
 ## Auteur
 
-Projet realise par Leonie Dobbelstein dans le cadre de la formation OpenClassrooms.
+Projet realise par Didier MEYER dans le cadre de la formation OpenClassrooms.

@@ -2,29 +2,12 @@ import { createBrowserRouter, Outlet, ScrollRestoration } from "react-router-dom
 import { lazy, Suspense } from "react";
 import { Header } from "@/components/header/header.jsx";
 import { Footer } from "@/components/footer/footer.jsx";
-import { Index } from "@/pages/index/index.jsx";
-const ErrorPage = lazy(() => import("@/pages/errorPage/errorPage.jsx"));
-const Contact = lazy(() => import("@/pages/contact/contact.jsx"));
+import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
+
+const Index    = lazy(() => import("@/pages/index/index.jsx"));
+const Contact  = lazy(() => import("@/pages/contact/contact.jsx"));
+const Ui       = lazy(() => import("@/pages/ui/ui.jsx"));
 const Property = lazy(() => import("@/pages/property/property.jsx"));
-
-const ErrorPageFallback = (
-    <Suspense fallback={<div>Chargement...</div>}>
-        <ErrorPage/>
-    </Suspense>
-);
-
-const ContactFallback = (
-    <Suspense fallback={<div>Chargement...</div>}>
-        <Contact/>
-    </Suspense>
-);
-
-const PropertyFallback = (
-    <Suspense fallback={<div>Chargement...</div>}>
-        <Property/>
-    </Suspense>
-
-);
 
 export const router = createBrowserRouter([
     {
@@ -61,7 +44,9 @@ function Root() {
     return <>
         <ScrollRestoration/>
         <Header/>
-        <Outlet/>
+        <Suspense fallback={<div>Chargement...</div>}>
+            <Outlet />
+        </Suspense>
         <Footer/>
     </>
 }

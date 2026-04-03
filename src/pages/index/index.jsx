@@ -2,7 +2,7 @@ import data from '../../bdd/data.json';
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 
-export function Index() {
+export default function Index() {
     return <main>
         <Section__banner/>
         <Section__gallery/>
