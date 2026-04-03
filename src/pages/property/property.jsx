@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { CollapseEffect } from '@/components/accordion/accordion.jsx'
 import { Carousel } from '@/components/carousel/carousel.jsx';
-import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
+import ErrorPage from "@/pages/errorPage/errorPage.jsx";
 import styles from './property.module.css';
 import data from '@/bdd/data.json';
 

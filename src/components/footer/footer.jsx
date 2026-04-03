@@ -1,4 +1,4 @@
-import logoWhite from "/public/logo-white.png";
+import logoWhite from "/logo-white.png";
 import style from './footer.module.css';
 
 export function Footer() {

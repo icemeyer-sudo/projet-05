@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet, ScrollRestoration } from "react-router-dom
 import { lazy, Suspense } from "react";
 import { Header } from "@/components/header/header.jsx";
 import { Footer } from "@/components/footer/footer.jsx";
-import { ErrorPage } from "@/pages/errorPage/errorPage.jsx";
+import ErrorPage from "@/pages/errorPage/errorPage.jsx";
 
 const Index    = lazy(() => import("@/pages/index/index.jsx"));
 const Contact  = lazy(() => import("@/pages/contact/contact.jsx"));
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Root/>,
-        errorElement: ErrorPageFallback,
+        errorElement: <MainErrorPage/>,
         children: [
             {
                 path: '',
@@ -24,17 +24,17 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: '',
-                        element: ErrorPageFallback
+                        element: <MainErrorPage/>
                     },
                     {
                         path: ':id',
-                        element: PropertyFallback
+                        element: <Property/>
                     }
                 ]
             },
             {
                 path: 'contact',
-                element: ContactFallback
+                element: <Contact/>
             }
         ]
     }
