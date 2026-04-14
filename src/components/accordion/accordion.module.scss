@@ -58,5 +58,6 @@ $red-color: #FF6060;
 
         .active {
             grid-template-rows: 1fr;
+            flex: 1;
         }
     }

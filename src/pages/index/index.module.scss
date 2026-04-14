@@ -158,6 +158,10 @@
     background-color: $red-color;
     color: white;
     border: 1px solid #FF6060;
+
+    @media (max-width: $w-smartphone) {
+        display: none;
+    }
 }
 
 .pagination-btn:hover {

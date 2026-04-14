@@ -46,4 +46,5 @@
 }
 .collapse .active {
   grid-template-rows: 1fr;
+  flex: 1;
 }/*# sourceMappingURL=accordion.module.css.map */
