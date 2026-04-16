@@ -1,7 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { getProperties } from "../../bdd/getProperties.js"
 import { getCountProperties } from "../../bdd/getCountProperties.js"
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import { useParams } from "react-router";
 import styles from "./index.module.css";
 import IndexPlaceholder from "@/pages/index/indexPlaceholder.jsx";
