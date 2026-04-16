@@ -30,7 +30,7 @@ export function Accordion({name, content}) {
 
     return <>
         <div className={ styles["collapse"] }>
-            <button className={ styles["title"] } onClick={handleCollapse}>
+            <button className={`${ styles["title"] } ${collapse ? styles["title-active"] : ''}`} onClick={handleCollapse}>
                 <h3>{ name }</h3>
                 <span className={ `fa-solid fa-angle-up ${styles["fa-angle-up"]} ${ rotated ? styles["rotated"] : '' }` }></span>
             </button>

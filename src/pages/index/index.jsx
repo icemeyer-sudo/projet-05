@@ -13,7 +13,7 @@ export default function Index() {
     const [myDownElementIsVisible, setMyDownElementIsVisible] = useState();
     const [myUpElementIsVisible, setMyUpElementIsVisible] = useState();
     const [pageSmart, setPageSmart] = useState(1);
-    const [isMobile, setIsMobile] = useState(() => window.innerWidth < 565);
+    const [isMobile, setIsMobile] = useState();
     const { page } = useParams();
     const location = useLocation();
 
@@ -25,10 +25,9 @@ export default function Index() {
             isMobileNow = false;
         }
         setIsMobile(isMobileNow);
-    });
+    }, []);
 
     useEffect(() => {
-        setPageSmart(1);
         let isMounted = true;
         setLoading(true);
         const numberOfPage = page ? Number(page) : 1;
@@ -40,6 +39,7 @@ export default function Index() {
             if(isMounted) {
                 setProperties(results)
                 setNumberOfProperties(PropertiesResults)
+                setPageSmart(1);
             }
         })
         .catch((error) => {

@@ -14,8 +14,9 @@ const Property = lazy(() => import("@/pages/property/property.jsx"));
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Root/>,
-        errorElement: <MainErrorPage/>,
+        element: <><ScrollRestoration/><Header/><Outlet/><Footer/></>,
+        errorElement: <><Header/><ErrorPage/><Footer/></>,
+
         children: [
             {
                 path: '',
@@ -49,21 +50,3 @@ export const router = createBrowserRouter([
         ]
     }
 ]);
-
-function Root() {
-    return <>
-        <ScrollRestoration/>
-        <Header/>
-        <Outlet/>
-        <Footer/>
-    </>
-}
-
-function MainErrorPage() {
-    return <>
-        <ScrollRestoration/>
-        <Header/>
-        <ErrorPage/>
-        <Footer/>
-    </>
-}
