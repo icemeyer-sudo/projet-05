@@ -13,23 +13,14 @@ export default function Index() {
     const [myDownElementIsVisible, setMyDownElementIsVisible] = useState();
     const [myUpElementIsVisible, setMyUpElementIsVisible] = useState();
     const [pageSmart, setPageSmart] = useState(1);
-    const [isMobile, setIsMobile] = useState();
     const { page } = useParams();
     const location = useLocation();
 
-    useEffect(() => {
-        let isMobileNow;
-        if (window.innerWidth < 565) {
-            isMobileNow = true;
-        } else {
-            isMobileNow = false;
-        }
-        setIsMobile(isMobileNow);
-    }, []);
+    const isMobile = window.innerWidth < 565;
+    console.log('TEST');
 
     useEffect(() => {
         let isMounted = true;
-        setLoading(true);
         const numberOfPage = page ? Number(page) : 1;
         Promise.all([
             getProperties(numberOfPage),
@@ -67,7 +58,7 @@ export default function Index() {
         });
         observer.observe(observerDown.current);
         return () => observer.disconnect();
-    }, [properties]);
+    }, [properties, isMobile]);
 
     useEffect(() => {
         if (!isMobile) return;
@@ -90,7 +81,7 @@ export default function Index() {
             setPageSmart(next);
             setMyDownElementIsVisible(false);
         }
-    }, [myDownElementIsVisible]);
+    });
 
     // ---- SCROLL INFINI UP ---- //
 
@@ -104,7 +95,7 @@ export default function Index() {
         });
         observer.observe(observerUp.current);
         return () => observer.disconnect();
-    }, [properties]);
+    }, [properties, isMobile]);
 
     useEffect(() => {
         if (!isMobile) return;
@@ -125,9 +116,9 @@ export default function Index() {
             setPageSmart(prev);
             setMyUpElementIsVisible(false);
         }
-    }, [myUpElementIsVisible]);
+    });
 
-    // ---- FIN DU SETUP SCROOL ---- //
+    // ---- FIN DU SETUP SCROLL ---- //
 
     if(loading === false) {
 
