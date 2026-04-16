@@ -10,13 +10,9 @@ export default function Index() {
     const [properties, setProperties] = useState([]);
     const [numberOfProperties, setNumberOfProperties] = useState();
     const [loading, setLoading] = useState(true);
-    const [myDownElementIsVisible, setMyDownElementIsVisible] = useState();
-    const [myUpElementIsVisible, setMyUpElementIsVisible] = useState();
-    const [pageSmart, setPageSmart] = useState(1);
     const { page } = useParams();
     const location = useLocation();
 
-    const isMobile = window.innerWidth < 565;
     console.log('TEST');
 
     useEffect(() => {
@@ -30,7 +26,6 @@ export default function Index() {
             if(isMounted) {
                 setProperties(results)
                 setNumberOfProperties(PropertiesResults)
-                setPageSmart(1);
             }
         })
         .catch((error) => {
@@ -46,80 +41,6 @@ export default function Index() {
         }
     },[page, location.key]);
 
-    // ---- SCROLL INFINI DOWN ---- //
-
-    const observerDown = useRef();
-    useEffect(() => {
-        if (!isMobile) return;
-        if (!observerDown.current) return;
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0];
-            setMyDownElementIsVisible(entry.isIntersecting);
-        });
-        observer.observe(observerDown.current);
-        return () => observer.disconnect();
-    }, [properties, isMobile]);
-
-    useEffect(() => {
-        if (!isMobile) return;
-        if (myDownElementIsVisible === true) {
-
-            const totalProperties = numberOfProperties?.totalOfProperties ?? 0;
-            const numberOfPages = Math.ceil(totalProperties / 6);
-
-            const next = pageSmart + 1;
-            if (next > numberOfPages) return;
-
-            Promise.all([
-                getProperties(pageSmart),
-                getProperties(next),
-            ])
-            .then(([resultsPage, resultsNext]) => {
-                const newProperties = [...resultsPage, ...resultsNext];
-                setProperties(newProperties);
-            })
-            setPageSmart(next);
-            setMyDownElementIsVisible(false);
-        }
-    });
-
-    // ---- SCROLL INFINI UP ---- //
-
-    const observerUp = useRef();
-    useEffect(() => {
-        if (!isMobile) return;
-        if (!observerUp.current) return;
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0];
-            setMyUpElementIsVisible(entry.isIntersecting);
-        });
-        observer.observe(observerUp.current);
-        return () => observer.disconnect();
-    }, [properties, isMobile]);
-
-    useEffect(() => {
-        if (!isMobile) return;
-        if (myUpElementIsVisible === true) {
-
-            if (pageSmart === 1) return;
-
-            const prev = pageSmart - 1;
-
-            Promise.all([
-                getProperties(prev),
-                getProperties(pageSmart),
-            ])
-            .then(([resultsPrev, resultsPage]) => {
-                const newProperties = [...resultsPrev, ...resultsPage];
-                setProperties(newProperties);
-            })
-            setPageSmart(prev);
-            setMyUpElementIsVisible(false);
-        }
-    });
-
-    // ---- FIN DU SETUP SCROLL ---- //
-
     if(loading === false) {
 
         const totalProperties = numberOfProperties?.totalOfProperties ?? 0;
@@ -132,13 +53,9 @@ export default function Index() {
 
         return <>
             <main>
-                <Section__banner/>
-                <Section__gallery
-                    properties={properties}
-                    observerDown={isMobile ? observerDown : null}
-                    observerUp={isMobile ? observerUp : null}
-                />
-                <Pagination numberOfPages={numberOfPages}/>
+                <Section__banner />
+                <Section__gallery properties={properties} />
+                <Pagination numberOfPages={numberOfPages} />
             </main>
         </>
     } else {

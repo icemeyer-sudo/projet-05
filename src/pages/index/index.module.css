@@ -163,11 +163,6 @@
   color: white;
   border: 1px solid #FF6060;
 }
-@media (max-width: 565px) {
-  .pagination-btn {
-    display: none;
-  }
-}
 
 .pagination-btn:hover {
   background-color: white;
