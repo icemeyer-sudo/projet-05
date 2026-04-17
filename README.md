@@ -61,6 +61,14 @@ src/
 - `/fiche-logement` : redirige vers la page d'erreur
 - `*` : page d'erreur (routes inconnues)
 
+## Branches
+
+- Branch main
+- Branch feature/fetch-data-api
+- Branch remove-infinites-scroll*
+
+* Branche principale, présentée en soutenance
+
 ## Lancer Le Projet
 
 ### Prerequis
@@ -108,13 +116,6 @@ npm run lint
 - Donnees mockees locales (`src/bdd/data.json`) pour developper sans dependance API.
 - Style en SCSS modules par composant avec variables globales partagees.
 - Alias de chemin `@/` configure dans Vite et jsconfig pour des imports absolus.
-
-## Ameliorations Possibles
-
-- Ajouter des tests unitaires (React Testing Library).
-- Ajouter une integration continue (lint/build automatiques).
-- Charger les donnees via API avec etats de chargement/erreur.
-- Ameliorer l'accessibilite (navigation clavier, attributs ARIA des collapses).
 
 ## Auteur
 
