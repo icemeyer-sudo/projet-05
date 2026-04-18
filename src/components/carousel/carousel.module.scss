@@ -48,6 +48,10 @@
         font-size: 48px;
         cursor: pointer;
         z-index: 1;
+
+        @media (max-width: $w-smartphone) {
+            font-size: 36px;
+        }
     }
 
     .carousel__arrow-label {

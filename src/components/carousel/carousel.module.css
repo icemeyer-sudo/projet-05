@@ -45,6 +45,11 @@
   cursor: pointer;
   z-index: 1;
 }
+@media (max-width: 565px) {
+  .carousel .carousel__arrow {
+    font-size: 36px;
+  }
+}
 .carousel .carousel__arrow-label {
   position: absolute;
   width: 1px;

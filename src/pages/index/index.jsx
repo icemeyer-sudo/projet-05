@@ -13,8 +13,6 @@ export default function Index() {
     const { page } = useParams();
     const location = useLocation();
 
-    console.log('TEST');
-
     useEffect(() => {
         let isMounted = true;
         const numberOfPage = page ? Number(page) : 1;

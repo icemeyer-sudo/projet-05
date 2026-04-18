@@ -9,6 +9,7 @@ export function Carousel({pictures}) {
     const [isAnimating, setIsAnimating] = useState(false);
     const ANIMATION_DURATION = 400;
 
+    // ---- Mise en cache des images du carrousel
     useEffect(() => {
         const main = new Image();
         main.src = pictures[0];

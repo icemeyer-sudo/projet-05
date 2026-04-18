@@ -65,9 +65,7 @@ src/
 
 - Branch main
 - Branch feature/fetch-data-api
-- Branch remove-infinites-scroll*
-
-* Branche principale, présentée en soutenance
+- Branch remove-infinites-scroll = présentée en soutenance
 
 ## Lancer Le Projet
 
@@ -110,13 +108,7 @@ npm run lint
 
 ## Choix Techniques
 
-- Routage centralise avec `createBrowserRouter` pour structurer les pages et la gestion d'erreur.
+- Routage centralise avec `react-router` pour structurer les pages et la gestion d'erreur.
 - Chargement paresseux (`React.lazy`) des pages avec `Suspense` et composants placeholder dedies par page.
 - Separation claire composants de mise en page (`components/`) et pages (`pages/`).
-- Donnees mockees locales (`src/bdd/data.json`) pour developper sans dependance API.
 - Style en SCSS modules par composant avec variables globales partagees.
-- Alias de chemin `@/` configure dans Vite et jsconfig pour des imports absolus.
-
-## Auteur
-
-Projet realise par Leonie Dobbelstein dans le cadre de la formation OpenClassrooms.
