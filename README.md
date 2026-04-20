@@ -49,6 +49,12 @@ src/
         _variables.scss
         style.scss
 
+## Branches
+
+- Main : correspond au projet tel que demandé, fonctionne sans API node
+- features : branche expérimentale
+- remove-infite-scroll : branche la plus aboutie (pagination, mysql), fonctionne avec le dépôt projet-05-node pour l'API
+
 ## Routes
 
 - `/` : page d'accueil
